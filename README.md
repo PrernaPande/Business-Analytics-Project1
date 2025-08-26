@@ -7,154 +7,16 @@ The majority of data sources were obtained directly from the database, while one
 The following SQL statements were developed to cleanse, standardize, and transform the extracted data, preparing it for modeling and subsequent reporting.
 
 1. dim_date
---cleansed dim_date table
-
-SELECT [DateKey]
-      ,[FullDateAlternateKey] as date
-     -- ,[DayNumberOfWeek]
-      ,[EnglishDayNameOfWeek] as day
-     -- ,[SpanishDayNameOfWeek]
-     -- ,[FrenchDayNameOfWeek]
-      --,[DayNumberOfMonth]
-     -- ,[DayNumberOfYear]
-      --,[WeekNumberOfYear]
-      ,[EnglishMonthName] as month,
-      left([EnglishMonthName],3) as month_in_short
-    --  ,[SpanishMonthName]
-    --  ,[FrenchMonthName]
-      ,[MonthNumberOfYear] as monthnumb
-      ,[CalendarQuarter] as quater
-      ,[CalendarYear] as year
-   --   ,[CalendarSemester]
-   --   ,[FiscalQuarter]
-   --   ,[FiscalYear]
-   --   ,[FiscalSemester]
-  FROM [AdventureWorksDW2022].[dbo].[DimDate]
-  where calendaryear >= 2023; 
+<img width="408" height="413" alt="image" src="https://github.com/user-attachments/assets/34f53d13-a159-42ae-af9e-8ed16a304460" />
 
   2. dim_customers
--- Cleansed DIM_Customers Table --
-SELECT 
-  c.[CustomerKey] 
-  --,[GeographyKey]
-  --,[CustomerAlternateKey]
-  --,[Title]
-  , 
-  c.[FirstName] AS [First Name] --  ,[MiddleName]
-  , 
-  c.[LastName] as [Last Name], 
-  c.[FirstName] + ' ' + c.[LastName] as [Full Name] --,[NameStyle]
-  -- ,[BirthDate]
-  -- ,[MaritalStatus]
-  --  ,[Suffix]
-  , 
-  case c.[Gender] when 'M' then 'Male' when 'F' then 'Female' end as Gender -- ,[EmailAddress]
-  -- ,[YearlyIncome]
-  --,[TotalChildren]
-  --,[NumberChildrenAtHome]
-  --,[EnglishEducation]
-  --,[SpanishEducation]
-  --,[FrenchEducation]
-  --,[EnglishOccupation]
-  --,[SpanishOccupation]
-  -- ,[FrenchOccupation]
-  -- ,[HouseOwnerFlag]
-  -- ,[NumberCarsOwned]
-  -- ,[AddressLine1]
-  --  ,[AddressLine2]
-  --  ,[Phone]
-  , 
-  c.[DateFirstPurchase] as [Date First Purchase], 
-  --   ,[CommuteDistance]
-  g.City as [Customer City] -- Joined in Customer City from Geography Table
-FROM 
-  [AdventureWorksDW2022].[dbo].[DimCustomer] as c 
-  LEFT JOIN [AdventureWorksDW2022].[dbo].[DimGeography] as g on g.GeographyKey = c.GeographyKey 
-order by 
-  c.CustomerKey desc;-- Ordered List by CustomerKey
+<img width="567" height="486" alt="image" src="https://github.com/user-attachments/assets/e94b44fe-7f78-4b2b-89f1-5e4feed7e076" />
 
 3. dim_products
--- Cleansed DIM_Products Table --
-SELECT 
-  p.[ProductKey], 
-  p.[ProductAlternateKey] AS ProductItemCode, 
-  --      ,[ProductSubcategoryKey], 
-  --      ,[WeightUnitMeasureCode]
-  --      ,[SizeUnitMeasureCode] 
-  p.[EnglishProductName] AS [Product Name], 
-  ps.EnglishProductSubcategoryName AS [Sub Category], -- Joined in from Sub Category Table
-  pc.EnglishProductCategoryName AS [Product Category], -- Joined in from Category Table
-  --      ,[SpanishProductName]
-  --      ,[FrenchProductName]
-  --      ,[StandardCost]
-  --      ,[FinishedGoodsFlag] 
-  p.[Color] AS [Product Color], 
-  --      ,[SafetyStockLevel]
-  --      ,[ReorderPoint]
-  --      ,[ListPrice] 
-  p.[Size] AS [Product Size], 
-  --      ,[SizeRange]
-  --      ,[Weight]
-  --      ,[DaysToManufacture]
-  p.[ProductLine] AS [Product Line], 
-  --     ,[DealerPrice]
-  --      ,[Class]
-  --      ,[Style] 
-  p.[ModelName] AS [Product Model Name], 
-  --      ,[LargePhoto]
-  p.[EnglishDescription] AS [Product Description], 
-  --      ,[FrenchDescription]
-  --      ,[ChineseDescription]
-  --      ,[ArabicDescription]
-  --      ,[HebrewDescription]
-  --      ,[ThaiDescription]
-  --      ,[GermanDescription]
-  --      ,[JapaneseDescription]
-  --      ,[TurkishDescription]
-  --      ,[StartDate], 
-  --      ,[EndDate], 
-  ISNULL (p.Status, 'Outdated') AS [Product Status] 
-FROM 
-  [AdventureWorksDW2022].[dbo].[DimProduct] as p
-  LEFT JOIN AdventureWorksDW2022.dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey 
-  LEFT JOIN AdventureWorksDW2022.dbo.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey 
-order by 
-  p.ProductKey asc
+<img width="507" height="427" alt="image" src="https://github.com/user-attachments/assets/2384b723-37d8-4adb-888a-9271afa88726" />
 
 4. fact_internetsales
--- Cleansed FACT_InternetSales Table --
-SELECT 
-  [ProductKey], 
-  [OrderDateKey], 
-  [DueDateKey], 
-  [ShipDateKey], 
-  [CustomerKey], 
-  --  ,[PromotionKey]
-  --  ,[CurrencyKey]
-  --  ,[SalesTerritoryKey]
-  [SalesOrderNumber], 
-  --  [SalesOrderLineNumber], 
-  --  ,[RevisionNumber]
-  --  ,[OrderQuantity], 
-  --  ,[UnitPrice], 
-  --  ,[ExtendedAmount]
-  --  ,[UnitPriceDiscountPct]
-  --  ,[DiscountAmount] 
-  --  ,[ProductStandardCost]
-  --  ,[TotalProductCost] 
-  [SalesAmount] --  ,[TaxAmt]
-  --  ,[Freight]
-  --  ,[CarrierTrackingNumber] 
-  --  ,[CustomerPONumber] 
-  --  ,[OrderDate] 
-  --  ,[DueDate] 
-  --  ,[ShipDate] 
-FROM 
-  [AdventureWorksDW2022].[dbo].[FactInternetSales]
-WHERE 
-  LEFT (OrderDateKey, 4) >= YEAR(GETDATE()) -2 -- Ensures we always only bring two years of date from extraction.
-ORDER BY
-  OrderDateKey ASC
+<img width="612" height="462" alt="image" src="https://github.com/user-attachments/assets/9503df10-2080-4f66-96a8-83cd56341bdb" />
 
 ## Data Model
 The data model follows a star schema, with FACT_InternetSales and FACT_Budget serving as the central fact tables connected to shared dimensions such as Calendar, Customers, and Products. This structure enables efficient comparison of actual versus budgeted sales across multiple perspectives (time, customer, and product) while supporting flexible and high-performance reporting in Power BI.
