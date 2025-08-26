@@ -30,7 +30,7 @@ SELECT [DateKey]
    --   ,[FiscalYear]
    --   ,[FiscalSemester]
   FROM [AdventureWorksDW2022].[dbo].[DimDate]
-  where calendaryear >= 2023;
+  where calendaryear >= 2023; 
 
   2. dim_customers
 -- Cleansed DIM_Customers Table --
