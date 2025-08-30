@@ -12,7 +12,7 @@ Steven identified the following needs:
      2.2. Which customers are purchasing them.
      2.3. How sales have evolved over time.
 4. Enable filtering by customer and product, as sales representatives manage different portfolios.
-5. Compare sales performance against the 2021 budget (provided in Excel).
+5. Compare sales performance against the 2023 budget (provided in Excel).
 6. Support historical analysis for the current year plus the past two years.
 
 # Business Demand Overview and User Stories
@@ -20,7 +20,7 @@ Business Demand Overview:
 -	Reporter: Steven – Sales Manager
 -	Value of Change: Visual dashboards and improved Sales reporting or follow up or sales force
 -	Necessary Systems: Power BI, CRM System
--	Other Relevant Info: Budgets have been delivered in Excel for 2021
+-	Other Relevant Info: Budgets have been delivered in Excel for 2023
 
 User Stories: 
 
