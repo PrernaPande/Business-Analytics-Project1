@@ -1,4 +1,45 @@
-# Business-Analytics-Sales Analysis
+# Business-Analytics-Sales Performance Analysis
+# Introduction 
+This project was developed using the AdventureWorks dataset, a fictitious multinational company that manufactures and sells bicycles and cycling accessories. The initiative aimed to improve Internet Sales reporting by replacing static reports with interactive Power BI dashboards, enabling Adventure Works’ sales managers and representatives to monitor performance more effectively and make data-driven decisions
+
+# Business Requirement 
+Reporter: Steven – Sales Manager at AdventureWorks
+
+Steven identified the following needs:
+1. Replace static sales reports with visual dashboards.
+2. Provide insights into:
+     2.1. Which products are selling the most.
+     2.2. Which customers are purchasing them.
+     2.3. How sales have evolved over time.
+4. Enable filtering by customer and product, as sales representatives manage different portfolios.
+5. Compare sales performance against the 2021 budget (provided in Excel).
+6. Support historical analysis for the current year plus the past two years.
+
+# Business Demand Overview and User Stories
+Business Demand Overview:
+-	Reporter: Steven – Sales Manager
+-	Value of Change: Visual dashboards and improved Sales reporting or follow up or sales force
+-	Necessary Systems: Power BI, CRM System
+-	Other Relevant Info: Budgets have been delivered in Excel for 2021
+
+User Stories: 
+
+<img width="646" height="374" alt="image" src="https://github.com/user-attachments/assets/f6d0b087-1020-496e-bdd7-57d138385e4c" />
+
+##EDA 
+Exploratory Data Analysis is the first step in the data analysis process. Here are the followin SQL Statements
+
+<img width="924" height="259" alt="image" src="https://github.com/user-attachments/assets/bf74c3f9-8499-4558-82bb-0fe31ff89deb" />
+
+
+<img width="475" height="278" alt="image" src="https://github.com/user-attachments/assets/3ec833d7-4e88-4932-8e6a-5f3d15b9400b" />
+
+
+<img width="567" height="277" alt="image" src="https://github.com/user-attachments/assets/e627ed5e-533c-4822-89e5-8ed30bfe1f08" />
+
+
+<img width="625" height="502" alt="image" src="https://github.com/user-attachments/assets/c06fed21-5fc1-4ed3-9ac6-7fe19aea3a77" />
+
 ## Data Cleansing & Transformation (SQL)
 To build the required data model for analysis and address the business needs outlined in the user stories, several tables were extracted and transformed using SQL.
 
