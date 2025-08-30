@@ -40,7 +40,7 @@ Exploratory Data Analysis is the first step in the data analysis process. Here a
 
 <img width="625" height="502" alt="image" src="https://github.com/user-attachments/assets/c06fed21-5fc1-4ed3-9ac6-7fe19aea3a77" />
 
-## Data Cleansing & Transformation (SQL)
+# Data Cleansing & Transformation (SQL)
 To build the required data model for analysis and address the business needs outlined in the user stories, several tables were extracted and transformed using SQL.
 
 The majority of data sources were obtained directly from the database, while one external source (Sales Budgets) was provided in Excel format. This Excel dataset was later integrated into the data model to enrich the analysis and ensure alignment with business requirements.
@@ -59,15 +59,19 @@ The following SQL statements were developed to cleanse, standardize, and transfo
 4. fact_internetsales
 <img width="612" height="462" alt="image" src="https://github.com/user-attachments/assets/9503df10-2080-4f66-96a8-83cd56341bdb" />
 
-## Data Model
+# Data Model
 The data model follows a star schema, with FACT_InternetSales and FACT_Budget serving as the central fact tables connected to shared dimensions such as Calendar, Customers, and Products. This structure enables efficient comparison of actual versus budgeted sales across multiple perspectives (time, customer, and product) while supporting flexible and high-performance reporting in Power BI.
 
 <img width="1071" height="479" alt="image" src="https://github.com/user-attachments/assets/92dde933-7ada-4e80-a1e5-b96e082ed7a6" />
 
-## Sales Management Dashboard
+# Sales Management Dashboard
 <img width="885" height="499" alt="image" src="https://github.com/user-attachments/assets/aa89804e-fa62-4823-a9c2-8a2cbd53486c" />
 <img width="893" height="546" alt="image" src="https://github.com/user-attachments/assets/b27ae0ef-0b23-44d1-be60-ae69432b3fed" />
 <img width="890" height="547" alt="image" src="https://github.com/user-attachments/assets/36c2571b-d151-4c6c-b112-d0c0d3cfcb4a" />
 
+# Expected Outcomes
 
+1. Sales Managers at Adventure Works gain strategic insights into overall performance against budget.
+2. Sales Representatives gain operational insights into customer and product performance for follow-up.
+3. A scalable, interactive reporting framework that supports data-driven decision-making across Adventure Works’ sales team.
 
