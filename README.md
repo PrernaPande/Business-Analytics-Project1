@@ -27,7 +27,7 @@ User Stories:
 <img width="646" height="374" alt="image" src="https://github.com/user-attachments/assets/f6d0b087-1020-496e-bdd7-57d138385e4c" />
 
 # EDA
-Exploratory Data Analysis is the first step in the data analysis process. Here are the followin SQL Statements
+Exploratory Data Analysis is the first step in the data analysis process. Here are the following SQL Statements
 
 <img width="924" height="259" alt="image" src="https://github.com/user-attachments/assets/bf74c3f9-8499-4558-82bb-0fe31ff89deb" />
 
